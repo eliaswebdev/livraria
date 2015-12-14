@@ -1,0 +1,15 @@
+#encoding: utf-8
+
+en:
+    activerecord:
+        models:
+            user: User
+            cliente: Client
+
+        attributes:
+            cliente:
+                nome: Name
+                telefone: Phone
+                endereco: Address
+                created_at: Created at
+                updated_at: Updated at

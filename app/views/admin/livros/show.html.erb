@@ -1,0 +1,32 @@
+<%- model_class = Livro -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:categoria_id) %>:</strong></dt>
+  <dd><%= @livro.categoria.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:editora_id) %>:</strong></dt>
+  <dd><%= @livro.editora.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
+  <dd><%= @livro.titulo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:isbn) %>:</strong></dt>
+  <dd><%= @livro.isbn %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:descricao) %>:</strong></dt>
+  <dd><%= @livro.descricao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ano) %>:</strong></dt>
+  <dd><%= @livro.ano %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:autores) %>:</strong></dt>
+  <dd>
+    <ul>
+      <% @livro.autores.each do |autor| %>
+      <li><%= autor.sobrenome.upcase %>, <%= autor.nome %></li>
+      <% end %>
+    </ul>
+  </dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              admin_livros_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_admin_livro_path(@livro), :class => 'btn btn-default' %>

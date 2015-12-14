@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, @autor] do |f| %>
+  <%= f.input :nome %>
+  <%= f.input :sobrenome %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_autores_path, :class => 'btn btn-default' %>
+<% end %>

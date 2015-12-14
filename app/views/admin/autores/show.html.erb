@@ -1,0 +1,17 @@
+<%- model_class = Autor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
+  <dd><%= @autor.nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:sobrenome) %>:</strong></dt>
+  <dd><%= @autor.sobrenome %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              admin_autores_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_admin_autor_path(@autor), :class => 'btn btn-default' %>
+

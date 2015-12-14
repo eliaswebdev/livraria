@@ -1,0 +1,18 @@
+#encoding: utf-8
+
+pt-BR:
+    activerecord:
+        models:
+            user: Usuário
+
+        attributes:
+            cliente:
+                nome: Nome Completo
+                endereco: Endereço
+                created_at: Cadastrado em
+                updated_at: Atualizado em
+
+            user: 
+                email: E-mail
+                password: Senha
+                remember_me: Lembre-me

@@ -1,0 +1,46 @@
+<%- model_class = Livro -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:categoria_id) %></th>
+      <th><%= model_class.human_attribute_name(:editora_id) %></th>
+      <th><%= model_class.human_attribute_name(:titulo) %></th>
+      <th><%= model_class.human_attribute_name(:isbn) %></th>
+      <th><%= model_class.human_attribute_name(:descricao) %></th>
+      <th><%= model_class.human_attribute_name(:ano) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @livros.each do |livro| %>
+      <tr>
+        <td><%= link_to livro.id, admin_livro_path(livro) %></td>
+        <td><%= livro.categoria_id %></td>
+        <td><%= livro.editora_id %></td>
+        <td><%= livro.titulo %></td>
+        <td><%= livro.isbn %></td>
+        <td><%= livro.descricao %></td>
+        <td><%= livro.ano %></td>
+        <td><%=l livro.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_admin_livro_path(livro), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      admin_livro_path(livro),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_admin_livro_path,
+            :class => 'btn btn-primary' %>

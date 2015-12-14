@@ -1,0 +1,23 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: root
+  host: 127.0.0.1
+
+
+development:
+  <<: *default
+  database: livraria_development
+
+test:
+  <<: *default
+  database: livraria_test
+
+production:
+  <<: *default
+  database: livraria_production
+  username: livraria
+  password: <%= ENV['LIVRARIA_DATABASE_PASSWORD'] %>

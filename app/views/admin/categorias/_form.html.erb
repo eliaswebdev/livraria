@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @categoria] do |f| %>
+  <%= f.input :nome %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                admin_categorias_path, :class => 'btn btn-default' %>
+<% end %>
