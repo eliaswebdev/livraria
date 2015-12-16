@@ -9,12 +9,15 @@ pt-BR:
       pages: "Pages"
   helpers:
     actions: "Ações"
+    actions_options:
+      delete: "Excluir"
+      edit: "Editar Registro"
     links:
       back: "Volar"
       cancel: "Cancelar"
       confirm: "Você tem certeza?"
       destroy: "Deletar"
-      new: "Novo"
+      new: "Cadastro"
       edit: "Editar"
     titles:
       edit: "Editar %{model}"

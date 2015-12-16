@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+	devise_for :users
+	
+	resources :livros
+
 	namespace :admin do
+		root to: 'livros#index'
 		resources :autores
 		resources :categorias
 		resources :editoras

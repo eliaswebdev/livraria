@@ -1,7 +1,9 @@
 <%- model_class = Livro -%>
 <div class="page-header">
+  <%= link_to t('.new', :default => t("helpers.links.new")), new_admin_livro_path, :class => 'btn btn-primary pull-right' %>
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -28,7 +30,7 @@
         <td><%= livro.ano %></td>
         <td><%=l livro.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to t('.edit', :default => t("helpers.actions_options.edit")),
                       edit_admin_livro_path(livro), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       admin_livro_path(livro),
@@ -41,6 +43,3 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_admin_livro_path,
-            :class => 'btn btn-primary' %>

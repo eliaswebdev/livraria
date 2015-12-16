@@ -18,6 +18,7 @@ gem "twitter-bootstrap-rails"
 
 gem 'simple_form'
 gem 'devise'
+gem 'declarative_authorization'
 
 gem 'ffaker'
 

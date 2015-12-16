@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214131954) do
+ActiveRecord::Schema.define(version: 20151216130820) do
 
   create_table "autores", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -54,6 +54,24 @@ ActiveRecord::Schema.define(version: 20151214131954) do
   add_index "livros", ["categoria_id"], name: "index_livros_on_categoria_id", using: :btree
   add_index "livros", ["editora_id"], name: "index_livros_on_editora_id", using: :btree
 
+  create_table "permissions", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "role_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "permissions", ["role_id"], name: "index_permissions_on_role_id", using: :btree
+  add_index "permissions", ["user_id"], name: "index_permissions_on_user_id", using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "value",       limit: 255
+    t.string   "description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -76,4 +94,6 @@ ActiveRecord::Schema.define(version: 20151214131954) do
   add_foreign_key "autores_livros", "livros"
   add_foreign_key "livros", "categorias"
   add_foreign_key "livros", "editoras"
+  add_foreign_key "permissions", "roles"
+  add_foreign_key "permissions", "users"
 end

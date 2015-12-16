@@ -1,4 +1,4 @@
-<%= simple_form_for @livro do |f| %>
+<%= simple_form_for [:admin, @livro] do |f| %>
   <%= f.association :categoria, collection: Categoria.all.map {|categoria| [categoria.nome, categoria.id]}, prompt: 'Selecione a Categoria' %>
   <%= f.association :editora, collection: Editora.all.map {|editora| [editora.nome, editora.id]}, prompt: 'Selecione a Editora' %>
   <%= f.association :autores, collection: Autor.all.map {|autor| ["#{autor.sobrenome.upcase}, #{autor.nome}", autor.id]} %>
@@ -9,5 +9,5 @@
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                livros_path, :class => 'btn btn-default' %>
+                admin_livros_path, :class => 'btn btn-default' %>
 <% end %>

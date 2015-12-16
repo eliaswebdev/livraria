@@ -52,6 +52,7 @@ GEM
     commonjs (0.2.7)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
+    declarative_authorization (0.5.7)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -177,6 +178,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  declarative_authorization
   devise
   ffaker
   jbuilder (~> 2.0)
@@ -195,4 +197,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.1
