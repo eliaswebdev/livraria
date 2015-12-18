@@ -1,5 +1,5 @@
 class Admin::LivrosController < AdminController
-  before_action :set_livro, only: [:show, :edit, :update, :destroy]
+  before_action :set_livro, only: [:show, :edit, :update, :destroy, :comentarios]
 
   # GET /livros
   # GET /livros.json
@@ -60,6 +60,11 @@ class Admin::LivrosController < AdminController
       format.json { head :no_content }
     end
   end
+
+  def comentarios
+    
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

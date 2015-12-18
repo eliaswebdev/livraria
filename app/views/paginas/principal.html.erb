@@ -1,1 +1,25 @@
-<h1>Seja Bem-vindo</h1>
+<div class="page-header text-center">
+    <h3>Livros em destaque</h3>
+</div>
+<div class="row">
+    <div class="content">
+        <% @livros.each do |livro| %>
+        <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-thumbnail">
+                    <%= image_tag livro.capa_url, class: "img-responsive" %>
+                </div>
+                <div class="panel-body" style="min-height: 180px">
+                    <p><%= livro.titulo %></p>
+                    <p>
+                        <small>
+                            <%= livro.categoria.nome %><br>
+                            <%= livro.editora.nome %>
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>

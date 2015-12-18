@@ -20,6 +20,9 @@ gem 'simple_form'
 gem 'devise'
 gem 'declarative_authorization'
 
+gem 'mini_magick'
+gem 'carrierwave'
+
 gem 'ffaker'
 
 group :development, :test do

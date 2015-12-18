@@ -2,7 +2,7 @@ authorization do
     role :admin do
         # ROLES
         # has_permission_on [:pages], :to => [:index]
-        has_permission_on [:admin_livros], :to => [:manage]
+        has_permission_on [:admin_livros], :to => [:manage, :comentarios]
         has_permission_on [:admin_categorias], :to => [:manage]
         has_permission_on [:admin_autores], :to => [:manage]
         has_permission_on [:admin_editoras], :to => [:read]

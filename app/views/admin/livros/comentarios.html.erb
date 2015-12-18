@@ -1,0 +1,18 @@
+<%- model_class = Livro -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %> / Comentários</h1>
+</div>
+
+
+<h3>Livro: <%= @livro.titulo %></h3>
+
+<ul>
+	<% @livro.comentarios.each do |comentario| %>
+	<li>
+		<strong>Mensagem:</strong>	<%= comentario.mensagem %> <br>
+		<strong>Avaliacao:</strong>	<%= comentario.avaliacao %> <br>
+		<strong>Status:</strong>	<%= comentario.status %> <br>
+		<strong>Created_at:</strong>	<%=l comentario.created_at %> <br>
+	</li>
+	<% end %>
+</ul>

@@ -8,6 +8,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:capa) %></th>
       <th><%= model_class.human_attribute_name(:categoria_id) %></th>
       <th><%= model_class.human_attribute_name(:editora_id) %></th>
       <th><%= model_class.human_attribute_name(:titulo) %></th>
@@ -22,14 +23,24 @@
     <% @livros.each do |livro| %>
       <tr>
         <td><%= link_to livro.id, admin_livro_path(livro) %></td>
-        <td><%= livro.categoria_id %></td>
-        <td><%= livro.editora_id %></td>
+        <td><%=
+              if livro.capa.present? 
+                link_to image_tag(livro.capa_url(:thumb), class: 'img-responsivee'), livro.capa_url 
+              else
+                'Imagem indisponível'
+              end
+            %>
+          </td>
+        <td><%= livro.categoria.nome %></td>
+        <td><%= livro.editora.nome %></td>
         <td><%= livro.titulo %></td>
         <td><%= livro.isbn %></td>
         <td><%= livro.descricao %></td>
         <td><%= livro.ano %></td>
         <td><%=l livro.created_at %></td>
         <td>
+          <%= link_to "Comentarios", comentarios_admin_livro_path(livro) %>
+
           <%= link_to t('.edit', :default => t("helpers.actions_options.edit")),
                       edit_admin_livro_path(livro), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

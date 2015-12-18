@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  livro_id: 
+  mensagem: MyText
+  avaliacao: 1
+  status: false
+
+two:
+  livro_id: 
+  mensagem: MyText
+  avaliacao: 1
+  status: false
