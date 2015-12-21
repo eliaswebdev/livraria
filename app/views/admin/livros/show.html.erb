@@ -16,11 +16,21 @@
   <dd><%= @livro.descricao %></dd>
   <dt><strong><%= model_class.human_attribute_name(:ano) %>:</strong></dt>
   <dd><%= @livro.ano %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:slug) %>:</strong></dt>
+  <dd><%= @livro.slug %></dd>
   <dt><strong><%= model_class.human_attribute_name(:autores) %>:</strong></dt>
   <dd>
     <ul>
       <% @livro.autores.each do |autor| %>
       <li><%= autor.sobrenome.upcase %>, <%= autor.nome %></li>
+      <% end %>
+    </ul>
+  </dd>
+
+  <dd>
+    <ul>
+      <% @livro.anexos.each do |anexo| %>
+      <li><%= anexo.descricao %>, <%= link_to anexo.descricao, anexo.arquivo_url, target: '_blank', class: 'btn btn-primary btn-xs', download: anexo.descricao.parameterize %></li>
       <% end %>
     </ul>
   </dd>

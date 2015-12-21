@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218131124) do
+ActiveRecord::Schema.define(version: 20151221121021) do
+
+  create_table "anexos", force: :cascade do |t|
+    t.integer  "livro_id",   limit: 4
+    t.string   "descricao",  limit: 255
+    t.string   "arquivo",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "anexos", ["livro_id"], name: "index_anexos_on_livro_id", using: :btree
 
   create_table "autores", force: :cascade do |t|
     t.string   "nome",       limit: 255
@@ -61,6 +71,7 @@ ActiveRecord::Schema.define(version: 20151218131124) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.string   "capa",         limit: 255
+    t.string   "slug",         limit: 255
   end
 
   add_index "livros", ["categoria_id"], name: "index_livros_on_categoria_id", using: :btree
@@ -102,6 +113,7 @@ ActiveRecord::Schema.define(version: 20151218131124) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "anexos", "livros"
   add_foreign_key "autores_livros", "autores"
   add_foreign_key "autores_livros", "livros"
   add_foreign_key "comentarios", "livros"

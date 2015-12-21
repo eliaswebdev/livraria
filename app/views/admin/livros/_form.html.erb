@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @livro] do |f| %>
+<%= simple_nested_form_for [:admin, @livro] do |f| %>
   <%= f.association :categoria, collection: Categoria.all.map {|categoria| [categoria.nome, categoria.id]}, prompt: 'Selecione a Categoria' %>
   <%= f.association :editora, collection: Editora.all.map {|editora| [editora.nome, editora.id]}, prompt: 'Selecione a Editora' %>
   <%= f.association :autores, collection: Autor.all.map {|autor| ["#{autor.sobrenome.upcase}, #{autor.nome}", autor.id]} %>
@@ -7,6 +7,19 @@
   <%= f.input :descricao %>
   <%= f.input :ano %>
   <%= f.input :capa %>
+  <%#= f.input :slug %>
+
+  <fieldset>
+    <legend>Anexos</legend>
+    <%= f.fields_for :anexos do |anexo| -%>
+        <%= anexo.link_to_remove "Remover este arquivo", :class => 'btn btn-xs btn-danger pull-right' %>
+        <%= anexo.input :arquivo %>
+        <%= anexo.input :descricao %>
+      <hr class="small">
+    <% end -%>
+  </fieldset> 
+  <%= f.link_to_add "Adicionar arquivo anexo", :anexos, :class => 'btn btn-success btn-block' %>
+    
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

@@ -31,11 +31,21 @@
               end
             %>
           </td>
-        <td><%= livro.categoria.nome %></td>
-        <td><%= livro.editora.nome %></td>
-        <td><%= livro.titulo %></td>
+        <td>
+          <%#= livro.categoria.nome %>
+          <%= best_in_place [:admin, livro], :titulo, as: :input, inner_class: "form-control" -%>
+        </td>
+        <td>
+          <%= livro.editora.nome %>
+        </td>
+        <td>
+          <%= best_in_place [:admin, livro], :titulo, as: :input, inner_class: "form-control" -%>
+        </td>
         <td><%= livro.isbn %></td>
-        <td><%= livro.descricao %></td>
+        <td>
+          <%#= livro.descricao %>
+          <%= best_in_place [:admin, livro], :descricao, as: :textarea, inner_class: "form-control" -%>
+        </td>
         <td><%= livro.ano %></td>
         <td><%=l livro.created_at %></td>
         <td>

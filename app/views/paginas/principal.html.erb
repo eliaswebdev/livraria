@@ -6,6 +6,7 @@
         <% @livros.each do |livro| %>
         <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
             <div class="panel panel-default">
+                <%= link_to livro_path(livro.slug) do %>
                 <div class="panel-thumbnail">
                     <%= image_tag livro.capa_url, class: "img-responsive" %>
                 </div>
@@ -18,6 +19,7 @@
                         </small>
                     </p>
                 </div>
+                <% end %>
             </div>
         </div>
         <% end %>

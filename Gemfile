@@ -17,6 +17,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 gem 'simple_form'
+gem 'nested_form'
+
 gem 'devise'
 gem 'declarative_authorization'
 
@@ -24,6 +26,9 @@ gem 'mini_magick'
 gem 'carrierwave'
 
 gem 'ffaker'
+
+gem 'friendly_id', '~> 5.1.0'
+gem 'best_in_place'
 
 group :development, :test do
   gem 'byebug'

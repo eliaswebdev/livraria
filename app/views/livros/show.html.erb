@@ -1,2 +1,9 @@
-<h1>Livros#show</h1>
-<p>Find me in app/views/livros/show.html.erb</p>
+<h1><%= @livro.titulo %></h1>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+		<%= image_tag @livro.capa_url, class: 'pull-right' %>
+		<h3>Descrição</h3>
+		<%= @livro.descricao %>
+	</div>
+</div>
